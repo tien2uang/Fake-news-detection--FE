@@ -9,8 +9,8 @@ import { useAuth } from "../context/AuthContext"
 import { useRouter } from "next/navigation"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
 export default function AnalysisForm() {
-  const { user, token, setUser, setToken } = useAuth()
-
+  const { user, token } = useAuth()
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
   const router = useRouter()
   const [formData, setFormData] = useState({
     label: "",
@@ -27,7 +27,7 @@ export default function AnalysisForm() {
     pants_on_fire_counts: "",
     context: "",
   })
-  const [analysisResult, setAnalysisResult] = useState<any>(null)
+  const [analysisResult, setAnalysisResult] = useState(null)
   const [error, setError] = useState<string | null>(null)
   const [isDialogOpen, setIsDialogOpen] = useState(false)
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -42,7 +42,7 @@ export default function AnalysisForm() {
     }
 
     try {
-      const response = await fetch("http://127.0.0.1:5001/api/inference", {
+      const response = await fetch(`${API_URL}/api/inference`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

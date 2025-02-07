@@ -9,6 +9,7 @@ import { useAuth } from "../context/AuthContext"
 import type { AuthResponse } from "../types/auth"
 
 export default function SignInForm() {
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -27,7 +28,7 @@ export default function SignInForm() {
 
     try {
       // Replace this with your actual API endpoint
-      const response = await fetch("http://127.0.0.1:5001/signin", {
+      const response = await fetch(`${API_URL}/signin`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -50,6 +51,7 @@ export default function SignInForm() {
       // Redirect to home page
       router.push("/")
     } catch (err) {
+      console.log(err)
       setError("Failed to sign in. Please check your credentials.")
     }
   }

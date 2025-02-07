@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
 export default function SignUpForm() {
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -31,7 +32,7 @@ export default function SignUpForm() {
     }
 
     try {
-      const response = await fetch("http://127.0.0.1:5001/signup", {
+      const response = await fetch(`${API_URL}/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -55,7 +56,8 @@ export default function SignUpForm() {
       } else {
         setError(data.message || "Failed to register user")
       }
-    } catch (err) {
+    } catch (error) {
+      console.log(error)
       setError("An error occurred. Please try again.")
     }
   }
