@@ -19,12 +19,6 @@ export default function AnalysisForm() {
     speaker: "",
     speaker_job_title: "",
     state_info: "",
-    party_affiliation: "",
-    barely_true_counts: "",
-    false_counts: "",
-    half_true_counts: "",
-    mostly_true_counts: "",
-    pants_on_fire_counts: "",
     context: "",
   })
   const [analysisResult, setAnalysisResult] = useState(null)
@@ -42,7 +36,7 @@ export default function AnalysisForm() {
     }
 
     try {
-      const response = await fetch(`${API_URL}/api/inference`, {
+      const response = await fetch(`${API_URL}/model/api/inference`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -72,10 +66,10 @@ export default function AnalysisForm() {
       <form onSubmit={handleSubmit} className="space-y-6 bg-white shadow-md rounded-lg p-6">
         <h2 className="text-2xl font-bold text-gray-800 mb-6">Submit for Analysis</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="space-y-2">
+          {/* <div className="space-y-2">
             <Label htmlFor="label">Label</Label>
             <Input id="label" name="label" value={formData.label} onChange={handleChange} required />
-          </div>
+          </div> */}
           <div className="space-y-2">
             <Label htmlFor="statement">Statement</Label>
             <Textarea id="statement" name="statement" value={formData.statement} onChange={handleChange} required />
@@ -102,7 +96,7 @@ export default function AnalysisForm() {
             <Label htmlFor="state_info">State Info</Label>
             <Input id="state_info" name="state_info" value={formData.state_info} onChange={handleChange} required />
           </div>
-          <div className="space-y-2">
+          {/* <div className="space-y-2">
             <Label htmlFor="party_affiliation">Party Affiliation</Label>
             <Input
               id="party_affiliation"
@@ -111,8 +105,8 @@ export default function AnalysisForm() {
               onChange={handleChange}
               required
             />
-          </div>
-          <div className="space-y-2">
+          </div> */}
+          {/* <div className="space-y-2">
             <Label htmlFor="barely_true_counts">Barely True Counts</Label>
             <Input
               id="barely_true_counts"
@@ -122,8 +116,8 @@ export default function AnalysisForm() {
               onChange={handleChange}
               required
             />
-          </div>
-          <div className="space-y-2">
+          </div> */}
+          {/* <div className="space-y-2">
             <Label htmlFor="false_counts">False Counts</Label>
             <Input
               id="false_counts"
@@ -133,8 +127,8 @@ export default function AnalysisForm() {
               onChange={handleChange}
               required
             />
-          </div>
-          <div className="space-y-2">
+          </div> */}
+          {/* <div className="space-y-2">
             <Label htmlFor="half_true_counts">Half True Counts</Label>
             <Input
               id="half_true_counts"
@@ -144,8 +138,8 @@ export default function AnalysisForm() {
               onChange={handleChange}
               required
             />
-          </div>
-          <div className="space-y-2">
+          </div> */}
+          {/* <div className="space-y-2">
             <Label htmlFor="mostly_true_counts">Mostly True Counts</Label>
             <Input
               id="mostly_true_counts"
@@ -155,8 +149,8 @@ export default function AnalysisForm() {
               onChange={handleChange}
               required
             />
-          </div>
-          <div className="space-y-2">
+          </div> */}
+          {/* <div className="space-y-2">
             <Label htmlFor="pants_on_fire_counts">Pants on Fire Counts</Label>
             <Input
               id="pants_on_fire_counts"
@@ -166,7 +160,7 @@ export default function AnalysisForm() {
               onChange={handleChange}
               required
             />
-          </div>
+          </div> */}
         </div>
         <div className="space-y-2">
           <Label htmlFor="context">Context</Label>

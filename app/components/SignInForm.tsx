@@ -28,7 +28,7 @@ export default function SignInForm() {
 
     try {
       // Replace this with your actual API endpoint
-      const response = await fetch(`${API_URL}/signin`, {
+      const response = await fetch(`${API_URL}/author/signin`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

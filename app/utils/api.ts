@@ -25,7 +25,7 @@ export async function fetchWithAuth(url: string, token: string, options: Request
 
 export async function fetchPreviousRequests(token: string): Promise<PreviousRequest[]> {
   const API_URL= process.env.NEXT_PUBLIC_API_URL;
-  const response = await fetchWithAuth(`${API_URL}/api/requests/list`, token)
+  const response = await fetchWithAuth(`${API_URL}/model/api/requests/list`, token)
   if (!response.ok) {
     throw new Error("Failed to fetch previous requests")
   }
